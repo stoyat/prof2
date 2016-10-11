@@ -20,5 +20,17 @@ abstract class Model
         );
         return $data;
     }
-
+    /*
+     * return 1 obj
+     */
+    public static function findByid($id)
+    {
+        $db = new Db();
+        $data = $db->query(
+            'SELECT * FROM ' . static::$table . ' WHERE id=:id',
+            [':id' => $id],
+            static::class
+        )[0];
+        return $data;
+    }
 }
