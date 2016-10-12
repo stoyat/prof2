@@ -8,17 +8,21 @@ use App\Model;
 class Article
     extends Model
 {
-    public static $table = 'news';
+    const LIMITED = 3;
 
+    public static $table = 'news';
     public $id;
     public $title;
     public $article;
 
-    public static function getLastnews( int $limit)
+    /*
+     * return count - LIMITED article
+     */
+    public static function getLastnews()
     {
         $db = new Db();
         $data = $db->query(
-            'SELECT * FROM ' . self::$table . ' ORDER BY `id` DESC LIMIT ' .$limit,
+            'SELECT * FROM ' . self::$table . ' ORDER BY `id` DESC LIMIT ' .self::LIMITED,
             [],
             self::class
         );

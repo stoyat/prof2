@@ -2,16 +2,28 @@
 
 require_once __DIR__ . '/autoload.php';
 
-use App\Model\User;
 use App\Model\Article;
 
-//$users = User::findAll();
-//var_dump($users);
+$news = Article::getLastnews();
 
-//$users = User::findByid(2);
-//var_dump($users);
+    foreach ($news as $item): ?>
+        <h3>
+            <? echo $item->title;?>
+        </h3>
+        <p>
+            <?
+                $item->article = substr( $item->article,0,235);
+                $item->article = substr( $item->article,0,strrpos($item->article, ' '));
+                echo $item->article;
+            ?>
+        </p>
+        <br>
+            <a href="article.php?id=<? echo $item->id?>">Перейти к новости</a>
+        <br>
+  <? endforeach; ?>
 
-$article = Article::getLastnews(5);
-var_dump($article);
+
+
+
 
 
