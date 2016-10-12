@@ -7,7 +7,6 @@ use App\Model;
 class User
     extends Model
 {
-
     public static $table = 'users';
 
     public $id;
@@ -15,6 +14,4 @@ class User
     public $login;
     public $name;
     public $age;
-
-
 }
