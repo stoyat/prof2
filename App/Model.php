@@ -29,7 +29,9 @@ abstract class Model
             'SELECT * FROM ' . static::$table . ' WHERE id=:id',
             [':id' => $id],
             static::class
-        )[0];
-        return $data;
+        );
+        if(empty($data)) {
+            return false;
+        } return $data[0];
     }
 }
