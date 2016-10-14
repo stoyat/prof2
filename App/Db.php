@@ -49,4 +49,13 @@ class Db
         }
     }
 
+    /**
+     * @return string
+     */
+
+    public function lastInsertId()
+    {
+        return $this->dbh->lastInsertId();
+    }
+
 }
