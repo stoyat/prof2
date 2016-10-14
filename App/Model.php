@@ -35,6 +35,16 @@ abstract class Model
     }
 
     /**
+     * update or insert
+     */
+    public function save ()
+    {
+        if (empty($this->id)) {
+            $this->insert();
+        } $this->update();
+    }
+
+    /**
      * return new obj
      */
     public function insert()
@@ -85,12 +95,16 @@ abstract class Model
     }
 
     /**
-     * update or insert
+     * @param $id
      */
-    public function save ()
+    public function delete($id)
     {
-      if (empty($this->id)) {
-          $this->insert();
-      } $this->update();
+        $sql = '
+            DELETE FROM ' . static::$table . '
+            WHERE id=:id';
+        $data = [':id' => $id];
+        $db = new DB();
+        $db->execute($sql, $data);
     }
+
 }
