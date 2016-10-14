@@ -4,7 +4,8 @@ namespace App;
 
 abstract class Model
 {
-    public static $table = 'foobar';
+    public static $table;
+    public $id;
 
     /**
      * @return array
@@ -34,20 +35,10 @@ abstract class Model
     }
 
     /**
-     * @return bool
-     */
-
-    public function isNew()
-    {
-        return empty($this->id);
-    }
-
-    /**
      * return new obj
      */
     public function insert()
     {
-        if ($this->isNew()) {
             $columns = [];
             $binds = [];
             $data = [];
@@ -68,6 +59,38 @@ abstract class Model
             $db = new Db();
             $db->execute($sql, $data);
             $this->id = $db->lastInsertId();
-        }
+    }
+
+    /**
+     * update obj
+     */
+    public function update()
+    {
+            $columns = [];
+            $data = [];
+            foreach ($this as $item => $value) {
+                if ('id' == $item) {
+                    $data[':' . $item] = $value;
+                    continue;
+                }
+                $columns[] = $item . ' = ' . ':' . $item;
+                $data[':' . $item] = $value;
+            }
+            $sql = '
+                UPDATE ' . static::$table . '
+                SET ' . implode(',', $columns) .
+                ' WHERE id = :id';
+            $db = new DB();
+            $db->execute($sql, $data);
+    }
+
+    /**
+     * update or insert
+     */
+    public function save ()
+    {
+      if (empty($this->id)) {
+          $this->insert();
+      } $this->update();
     }
 }
