@@ -2,14 +2,12 @@
 
 namespace App;
 
-
 class Config
 {
-    public $host;
+    public $data;
 
-    public function getHost()
+    public function __construct()
     {
-       $this->host = $_SERVER['SERVER_ADDR'];
+        $this->data = require __DIR__ . '/../config.php';
     }
-
 }

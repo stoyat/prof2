@@ -16,3 +16,7 @@ $article->title = 'test';
 $article->article = 'testtest';
 $article->insert();
  */
+
+$config = new \App\Config();
+echo $config->data['db']['host'];
+
