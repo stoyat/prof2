@@ -17,6 +17,12 @@ $article->article = 'testtest';
 $article->insert();
  */
 
+/**
 $config = new \App\Config();
 echo $config->data['db']['host'];
+*/
+
+$config = \App\Config::getInstance();
+echo $config->data['db']['host'];
+
 

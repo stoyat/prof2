@@ -4,9 +4,11 @@ namespace App;
 
 class Config
 {
+    use Singleton;
+
     public $data;
 
-    public function __construct()
+  protected function __construct()
     {
         $this->data = require __DIR__ . '/../config.php';
     }
