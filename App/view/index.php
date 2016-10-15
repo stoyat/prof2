@@ -36,6 +36,7 @@
 <div class="container">
     <!-- Example row of columns -->
     <div class="row">
+        <p><a class="btn btn-default" href="admin.php" role="button">Админка &raquo;</a></p>
         <div class="col-md-4">
             <? if($news):?>
                 <? foreach($news as $item):?>

@@ -97,12 +97,12 @@ abstract class Model
     /**
      * @param $id
      */
-    public function delete($id)
+    public function delete()
     {
         $sql = '
             DELETE FROM ' . static::$table . '
             WHERE id=:id';
-        $data = [':id' => $id];
+        $data[':id'] = $this->id;
         $db = new DB();
         $db->execute($sql, $data);
     }

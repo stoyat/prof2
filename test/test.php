@@ -41,7 +41,8 @@ $article->title = 'Заголовок';
 $article->article = 'Текст';
 $article->save();
  */
-/**
+/*
 $article = new \App\Model\Article();
-$article->delete(5);
+$article->id = 6;
+$article->delete();
 */
