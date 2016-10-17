@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__ . '/autoload.php';
 
-$article = new \App\Model\Article();
-$article->id = $_GET['id'];
+$id = (int)$_GET['id'];
 
-if ( $article->id) {
-    $article->delete();
+if (isset($id)) {
+    \App\Model\Article::findById($id)->delete();
     header('Location: /admin.php');
 }
+

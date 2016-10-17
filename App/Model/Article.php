@@ -18,7 +18,7 @@ class Article
      */
     public static function getLastnews($limit)
     {
-        $db = new Db();
+        $db = DB::getInstance();
         $data = $db->query(
             'SELECT * FROM ' . static::$table . ' ORDER BY `id` DESC LIMIT ' . $limit,
             [],

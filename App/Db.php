@@ -5,10 +5,11 @@ namespace App;
 use App\Config;
 class Db
 {
+    use Singleton;
 
     protected $dbh;
 
-    public function __construct()
+    protected function __construct()
     {
         $config = Config::getInstance();
         $this->dbh = new \PDO('mysql:host=' . $config->data['db']['host'] .

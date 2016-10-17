@@ -12,7 +12,7 @@ abstract class Model
      */
     public static function findAll()
     {
-        $db = new Db();
+        $db = DB::getInstance();
         $data = $db->query(
             'SELECT * FROM ' . static::$table,
             [],
@@ -25,7 +25,7 @@ abstract class Model
      */
     public static function findByid($id)
     {
-        $db = new Db();
+        $db = DB::getInstance();
         $data = $db->query(
             'SELECT * FROM ' . static::$table . ' WHERE id=:id',
             [':id' => $id],
@@ -68,7 +68,7 @@ abstract class Model
                 VALUES
                 (' . implode(', ', $binds). ')
                 ';
-            $db = new Db();
+            $db = DB::getInstance();
             $db->execute($sql, $data);
             $this->id = $db->lastInsertId();
     }
@@ -92,7 +92,7 @@ abstract class Model
                 SET ' . implode(',', $columns) .
                 ' WHERE id = :id';
                 $data[':id'] = $this->id;
-            $db = new DB();
+            $db = DB::getInstance();
             $db->execute($sql, $data);
     }
 
@@ -105,7 +105,7 @@ abstract class Model
             DELETE FROM ' . static::$table . '
             WHERE id=:id';
         $data[':id'] = $this->id;
-        $db = new DB();
+        $db = DB::getInstance();
         $db->execute($sql, $data);
     }
 
