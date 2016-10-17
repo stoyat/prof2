@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Config;
 class Db
 {
 
@@ -9,7 +10,11 @@ class Db
 
     public function __construct()
     {
-        $this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=php2', 'root', '');
+        $config = Config::getInstance();
+        $this->dbh = new \PDO('mysql:host=' . $config->data['db']['host'] .
+                                ';dbname=' . $config->data['db']['dbname'],
+                                             $config->data['db']['user'],
+                                            $config->data['db']['password']);
     }
 
     /**
