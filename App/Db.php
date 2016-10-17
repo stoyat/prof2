@@ -2,7 +2,6 @@
 
 namespace App;
 
-use App\Config;
 class Db
 {
     use Singleton;
