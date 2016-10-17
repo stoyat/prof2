@@ -41,7 +41,9 @@ abstract class Model
     {
         if (empty($this->id)) {
             $this->insert();
-        } $this->update();
+        } else {
+            $this->update();
+        }
     }
 
     /**
@@ -80,7 +82,6 @@ abstract class Model
             $data = [];
             foreach ($this as $item => $value) {
                 if ('id' == $item) {
-                    $data[':' . $item] = $value;
                     continue;
                 }
                 $columns[] = $item . ' = ' . ':' . $item;
@@ -90,6 +91,7 @@ abstract class Model
                 UPDATE ' . static::$table . '
                 SET ' . implode(',', $columns) .
                 ' WHERE id = :id';
+                $data[':id'] = $this->id;
             $db = new DB();
             $db->execute($sql, $data);
     }
