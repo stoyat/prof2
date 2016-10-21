@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,8 +34,8 @@
     <div class="row">
         <p><a class="btn btn-default" href="admin.php" role="button">Админка &raquo;</a></p>
         <div class="col-md-4">
-            <? if($news):?>
-                <? foreach($news as $item):?>
+            <? if($this->news):?>
+                <? foreach($this->news as $item):?>
                     <h2><? echo $item->title;?></h2>
                     <p><?
                         $item->article = substr( $item->article,0,235);
