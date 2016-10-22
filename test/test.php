@@ -46,3 +46,6 @@ $article = new \App\Model\Article();
 $article->id = 6;
 $article->delete();
 */
+
+$author = \App\Model\Author::findAll();
+var_dump($author);
