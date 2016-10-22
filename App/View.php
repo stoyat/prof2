@@ -15,9 +15,7 @@ class View
     public function render($template)
     {
         ob_start();
-        foreach ($this->data as $key => $value) {
-            $$key = $value;
-        }
+
         include $template;
         $html = ob_get_contents();
         ob_end_clean();

@@ -42,10 +42,10 @@
 <div class="container">
 
     <div class="starter-template">
-        <h1><?echo $article ->title; ?></h1>
-        <p class="lead"><?echo $article ->article; ?></p>
-        <? if(!empty($article->author)): ?>
-            <p> Автор : <? echo $article->author->name;?> </p>
+        <h1><?echo $this->article ->title; ?></h1>
+        <p class="lead"><?echo $this->article ->article; ?></p>
+        <? if(!empty($this->article->author)): ?>
+            <p> Автор : <? echo $this->article->author->name;?> </p>
         <? endif; ?>
     </div>
 
