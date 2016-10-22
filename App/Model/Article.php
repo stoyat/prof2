@@ -5,6 +5,11 @@ namespace App\Model;
 use App\Db;
 use App\Model;
 
+/**
+ * Class Article
+ * @package App\Model
+ * @property $author
+ */
 class Article
     extends Model
 {
@@ -12,6 +17,7 @@ class Article
     public $id;
     public $title;
     public $article;
+    public $author_id;
 
     /*
      * return count - LIMITED article
@@ -26,5 +32,27 @@ class Article
         );
         return $data;
      }
-}
 
+    /**
+     * @param $name
+     * @return bool|null
+     */
+    public function __get($name)
+    {
+        if ($name = 'author') {
+           $author =  Author::findByid($this->author_id);
+            return $author;
+        } else {
+            return null;
+        }
+    }
+
+    public function __isset($name)
+    {
+        if ($name = 'author') {
+            return true;
+        } else {
+            return null;
+        }
+    }
+}

@@ -43,6 +43,9 @@
                         echo $item->article;
                         ?>
                     </p>
+                    <? if(!empty($item->author)):?>
+                       <p> Автор : <? echo $item->author->name;?></p>
+                    <? endif; ?>
                     <p><a class="btn btn-default" href="article.php?id=<? echo $item->id?>" role="button">Перейти к новости &raquo;</a></p>
                 <? endforeach;?>
                 <? else :?>

@@ -1,10 +1,17 @@
 <?php
 
-    require_once __DIR__ . '/autoload.php';
-    $article = \App\Model\Article::findByid($_GET['id']);
+require_once __DIR__ . '/autoload.php';
 
-    include __DIR__. '/App/view/article.php';
-?>
+use App\Model\Article;
+use App\View;
+
+$view = new View();
+$article = Article::findByid($_GET['id']);
+$view->article = $article;
+//var_dump($view->article);
+
+$html = $view->display(__DIR__. '/App/view/article.php');
+
 
 
 
