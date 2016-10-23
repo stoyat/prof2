@@ -38,8 +38,8 @@
                 <? foreach($news as $item):?>
                     <h2><? echo $item->title;?></h2>
                     <p><?
-                        $item->article = substr( $item->article,0,235);
-                        $item->article = substr( $item->article,0,strrpos($item->article, ' '));
+                        $item->article = substr($item->article,0,235);
+                        $item->article = substr($item->article,0,strrpos($item->article, ' '));
                         echo $item->article;
                         ?>
                     </p>

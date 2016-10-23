@@ -40,8 +40,7 @@ class Article
     public function __get($name)
     {
         if ($name = 'author') {
-           $author =  Author::findByid($this->author_id);
-            return $author;
+          return  Author::findByid($this->author_id);
         } else {
             return null;
         }

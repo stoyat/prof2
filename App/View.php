@@ -8,6 +8,8 @@ class View
 {
     use Magic;
 
+    private $position = 0;
+
     public function display($template)
     {
         echo $this->render($template);
@@ -47,7 +49,7 @@ class View
      */
     public function current()
     {
-        // TODO: Implement current() method.
+        return $this->data[$this->position];// TODO: Implement current() method.
     }
 
     /**
@@ -58,7 +60,7 @@ class View
      */
     public function next()
     {
-        // TODO: Implement next() method.
+        ++$this->position;// TODO: Implement next() method.
     }
 
     /**
@@ -69,7 +71,7 @@ class View
      */
     public function key()
     {
-        // TODO: Implement key() method.
+        return $this->position;// TODO: Implement key() method.
     }
 
     /**
@@ -81,7 +83,7 @@ class View
      */
     public function valid()
     {
-        // TODO: Implement valid() method.
+        return isset($this->data[$this->position]);// TODO: Implement valid() method.
     }
 
     /**
@@ -92,6 +94,6 @@ class View
      */
     public function rewind()
     {
-        // TODO: Implement rewind() method.
+        $this->position = 0;// TODO: Implement rewind() method.
     }
 }

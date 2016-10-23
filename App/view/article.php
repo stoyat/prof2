@@ -42,8 +42,8 @@
 <div class="container">
 
     <div class="starter-template">
-        <h1><?echo $article ->title; ?></h1>
-        <p class="lead"><?echo $article ->article; ?></p>
+        <h1><?echo $article->title; ?></h1>
+        <p class="lead"><?echo $article->article; ?></p>
         <? if(!empty($article->author)): ?>
             <p> Автор : <? echo $article->author->name;?> </p>
         <? endif; ?>
