@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>Jumbotron Template for Bootstrap</title>
+    <title><? echo $title?></title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
@@ -34,8 +34,8 @@
     <div class="row">
         <p><a class="btn btn-default" href="admin.php" role="button">Админка &raquo;</a></p>
         <div class="col-md-4">
-            <? if($this->news):?>
-                <? foreach($this->news as $item):?>
+            <? if($news):?>
+                <? foreach($news as $item):?>
                     <h2><? echo $item->title;?></h2>
                     <p><?
                         $item->article = substr( $item->article,0,235);
@@ -53,9 +53,7 @@
             <? endif; ?>
         </div>
     </div>
-
     <hr>
-
     <footer>
         <p>&copy; Ryzhyk E</p>
     </footer>
