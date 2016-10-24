@@ -39,7 +39,7 @@ class Article
      */
     public function __get($name)
     {
-        //переделал на switch case - вдруг не только свойство автор прийдется получать
+        //ошибка = / == переделал на switch case - вдруг не только свойство автор прийдется получать
         switch($name) {
             case 'author':
                 return  Author::findByid($this->author_id);
