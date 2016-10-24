@@ -60,7 +60,7 @@ class View
      */
     public function next()
     {
-        ++$this->position;// TODO: Implement next() method.
+        ++$this->data[$this->position];// TODO: Implement next() method.
     }
 
     /**

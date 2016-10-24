@@ -39,19 +39,23 @@ class Article
      */
     public function __get($name)
     {
-        if ($name = 'author') {
-          return  Author::findByid($this->author_id);
-        } else {
-            return null;
+        switch($name) {
+            case 'author':
+                return  Author::findByid($this->author_id);
+                break;
+            default:
+                return null;
         }
     }
 
     public function __isset($name)
     {
-        if ($name = 'author') {
-            return true;
-        } else {
-            return null;
+        switch($name) {
+            case 'author':
+                return true;
+                break;
+            default:
+                return null;
         }
     }
 }
